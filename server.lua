@@ -31,21 +31,15 @@ AddEventHandler('esx_methcar:start', function()
 		return
 	end
 
-	if xPlayer.Functions.GetItemByName('acetone').count >= 5 and xPlayer.Functions.GetItemByName('lithium').count >= 2 and xPlayer.Functions.GetItemByName('methlab').count >= 1 then
-		if xPlayer.Functions.GetItemByName('meth').count >= 200 then
-				TriggerClientEvent('esx_methcar:notify', _source, "~r~~h~You cant hold more meth")
-		else
+	if xPlayer.Functions.GetItemByName('acetone').amount >= 5 and xPlayer.Functions.GetItemByName('lithium').amount >= 2 and xPlayer.Functions.GetItemByName('methlab').amount >= 1 then
 			TriggerClientEvent('esx_methcar:startprod', _source)
 			xPlayer.Functions.RemoveItem('acetone', 5)
 			TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["acetone"], "remove")
 			xPlayer.Functions.RemoveItem('lithium', 2)
 			TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["lithium"], "remove")
-		end
-
-		
-		
 	else
 		TriggerClientEvent('esx_methcar:notify', _source, "~r~~h~Not enough supplies to start producing Meth")
+
 	end
 	
 end)
