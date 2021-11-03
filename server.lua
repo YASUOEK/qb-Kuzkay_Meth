@@ -1,7 +1,7 @@
-print("冰毒车已加载,由 Kuzkay 制造由YASUO_QB转换")
+print("Ice car, Kuzkay YASUO_QB")
 local QBCore = exports['qb-core']:GetCoreObject()	
 local CopsConnected       	   = 0
-local RequiredCopsMorf         = 1    --在线警察人数限制
+local RequiredCopsMorf         = 1    --Limit on the number of online police
 
 
 function CountCops()
@@ -27,13 +27,13 @@ AddEventHandler('esx_methcar:start', function()
 	local xPlayer = QBCore.Functions.GetPlayer(_source)
 	
 	if CopsConnected < RequiredCopsMorf then
-		TriggerClientEvent('pkl:showCountryWelcome', _source, '在线警察人数不足')
+		TriggerClientEvent('pkl:showCountryWelcome', _source, 'Limit on the number of online police')
 		return
 	end
 
 	if xPlayer.Functions.GetItemByName('acetone').count >= 5 and xPlayer.Functions.GetItemByName('lithium').count >= 2 and xPlayer.Functions.GetItemByName('methlab').count >= 1 then
 		if xPlayer.Functions.GetItemByName('meth').count >= 200 then
-				TriggerClientEvent('esx_methcar:notify', _source, "~r~~h~你不能持有更多的冰毒")
+				TriggerClientEvent('esx_methcar:notify', _source, "~r~~h~Limit on the number of online police")
 		else
 			TriggerClientEvent('esx_methcar:startprod', _source)
 			xPlayer.Functions.RemoveItem('acetone', 5)
@@ -45,7 +45,7 @@ AddEventHandler('esx_methcar:start', function()
 		
 		
 	else
-		TriggerClientEvent('esx_methcar:notify', _source, "~r~~h~材料不足,无法生产冰毒")
+		TriggerClientEvent('esx_methcar:notify', _source, "~r~~h~Limit on the number of online police")
 
 	end
 	
